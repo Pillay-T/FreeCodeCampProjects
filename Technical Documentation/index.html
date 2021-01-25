@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> MAPBOX Technical Documentation Page</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css' rel='stylesheet' />
+
+
+</head>
+<body>
+<div class="nav-bar">
+    <nav id="navbar">
+        <header id='header'>Mapbox Basics</header>
+        <li><a class="nav-link" href="#Basic_Map">Basic Map</a></li>
+        <li><a class="nav-link" href="#Add_a_default_marker">Add a default marker
+        </a></li>
+        
+       <li><a class="nav-link" href="#Map_styles">Map Styles</a></li>
+        <li><a class="nav-link" href="#Advanced_Tutorials">Advanced Tutorials</a></li>
+        <li><a class="nav-link" href="#Mapbox_GL_JS_vs_MapBox.js">Mapbox GL JS vs MapBox.js</a></li>
+    </nav>
+</div>    
+    
+    <main id="main-doc">
+        <section id="Basic_Map" class="main-section">
+            <header class="section-header">Basic Map</header>
+            <p></p>
+            <p>Include the following in head of your code</p>
+    <code>script src='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.js'></script>
+link href='https://api.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css' rel='stylesheet' />
+            </code>
+
+            
+            <p>Include this in the body</p>
+            <code> <pre>div id='map' style='width: 400px; height: 300px;'>/div>
+script
+    mapboxgl.accessToken = 'pk.eyJ1IjoiY3Jhenl0ZXJpIiwiYSI6ImNrY3o3ajhsajBoOXEydmxhc2hwY29rb3gifQ.DAPTt1W9MqWk0dUPtrQ-TQ';
+    var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+    center: [29.5, -32], // starting position [lng, lat]
+    zoom: 9 // starting zoom
+    });
+script></pre>   </code>
+<h1> Results</h1>
+
+    <div class="map" style="background: rgba(0, 0, 0, 0.699);margin:20px;padding: 10px;">
+        <div id='map' style=' height: 400px; margin:auto;'></div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiY3Jhenl0ZXJpIiwiYSI6ImNrY3o3ajhsajBoOXEydmxhc2hwY29rb3gifQ.DAPTt1W9MqWk0dUPtrQ-TQ';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+    center: [0, 0], // starting position [lng, lat]
+    zoom: 1 // starting zoom
+});
+</script>
+    </div>                 
+
+           
+        </section>
+     
+        <section id="Add_a_default_marker"class="main-section">
+            <header class="section-header">Add a default marker</header>
+            <p>The marker is a blue location pin</p>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbDrfYy6uFdnlHsBATM_wStaTdhZcA_sqVnQ&usqp=CAU" style="width:100px;" alt="">         
+<p>There are ways that you can change the symbol of the marker. Visit <a href="https://docs.mapbox.com/mapbox-gl-js/example/">Mapbox Examples</a> to see how to change the style of the marker</p>
+<code>    var marker = new mapboxgl.Marker()
+.setLngLat([12.550343, 55.665957])
+.addTo(map);
+</code>
+           
+        </section>
+        
+     
+        <section id="Map_styles" class="main-section">
+            <header class="section-header">Map Styles</header>
+            <p>Visit the Mapbox Studio to get more styles of maps.</p>
+            <p>The studio allows you to customise a basemap to your preferences. They also have a bariety of templates you can choose from. You can choose raster tiling or vector tiling. You are able to use these maps in QGIS as well by using a plugin.</p>
+            <label><strong> A few of the templates:</strong> </label>
+            <li>Basic</li>
+            <li>Streets</li>
+            <li>Monochrome</li>
+            <li>Satellite Streets</li>
+            <li>Outdoors</li>
+
+            <p>Heres is how you can change the style of the map</p>
+            <code> <pre>div id='map' style='width: 400px; height: 300px;'>/div>
+                script
+                    mapboxgl.accessToken = 'pk.eyJ1IjoiY3Jhenl0ZXJpIiwiYSI6ImNrY3o3ajhsajBoOXEydmxhc2hwY29rb3gifQ.DAPTt1W9MqWk0dUPtrQ-TQ';
+                    var map = new mapboxgl.Map({
+                    container: 'map',
+                    style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+                    center: [29.5, -32], // starting position [lng, lat]
+                    zoom: 9 // starting zoom
+                    });
+                script></pre>   </code>
+                <p>The <strong>style</strong> atrribute in the map object can be changed to the desired style</p>
+                <p>Some of the default ones are:</p>
+                <code>mapbox://styles/mapbox/streets-v11
+mapbox://styles/mapbox/outdoors-v11
+mapbox://styles/mapbox/light-v10
+mapbox://styles/mapbox/dark-v10
+mapbox://styles/mapbox/satellite-v9
+mapbox://styles/mapbox/satellite-streets-v11
+                </code>
+        </section>
+        <section id="Advanced_Tutorials"class="main-section">
+            <header class="section-header">Advanced Tutorials</header>
+           <p>Mapbox has great documentation for various uses. You can also find out more information by looking at existing projects on Github. The documentation on Mapbox is a great place to start if you are unsure of anything. 
+             <br>   To view tutorials on how to create more advanced maps <a href="https://docs.mapbox.com/help/tutorials/?product=Mapbox+GL+JS">Click Here</a> </p>
+            <p> <strong> A few exapmles of the tutorials you will find include:</strong></p>
+
+            <li>Make a choropleth map</li>
+            <li>Mapbox boundries</li>
+            <li>Local search - Geocoding</li>
+            <li>Optimised Routing</li>
+            <li>Show Changes over time</li>
+
+        </section>
+        <section id="Mapbox_GL_JS_vs_MapBox.js" class="main-section">
+            <header class="section-header">Mapbox GL JS vs MapBox.js</header>
+            <p><strong>Mapbox GL JS</strong></p>
+            <p>Announcing Mapbox GL JS — a fast and powerful new system for web maps. Mapbox GL JS is a client-side renderer, so it uses JavaScript and WebGL to dynamically 
+                draw data with the speed and smoothness of a video game. Instead of fixing styles and zoom levels at the server level, Mapbox GL puts power in JavaScript, 
+                allowing for dynamic styling and freeform interactivity. Vector maps are the next evolution,
+                 and we're excited to see what developers build with this framework.
+                Mapbox GL JS is a JavaScript library that uses Mapbox GL to render interactive maps. It’s an open source library that’s free to use. 
+                You can add a Mapbox style or a custom style created with Mapbox Studio to your Mapbox GL JS application.
+            </p>
+            <p><strong>Mapbox.js</strong></p>
+            <p>Mapbox.js is a JavaScript library that allows you to add an your interactive map to your website. It is a plugin for Leaflet, and it is an open source library that’s free to use.</p>
+           
+            
+        </section>
+    </main>
+</body>
+</html>
